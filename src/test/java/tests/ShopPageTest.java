@@ -27,7 +27,6 @@ class ShopPageTest {
 	@Test
 	void test() throws InterruptedException {
 		this.shopPage.viewShopPage();
-		System.out.println("URL: " + shopPage.getCurrentUrl());
 		Assertions.assertEquals(this.URL_SHOP, shopPage.getCurrentUrl());
 	}
 
