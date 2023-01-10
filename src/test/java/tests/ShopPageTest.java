@@ -10,7 +10,7 @@ import pages.ShopPage;
 class ShopPageTest {
 	
 	private ShopPage shopPage;
-	//private final String URL = "https://practice.automationtesting.in/";
+	private final String URL = "https://practice.automationtesting.in/";
 	private final String URL_SHOP = "https://practice.automationtesting.in/shop/";
 
 	@BeforeEach
@@ -21,13 +21,14 @@ class ShopPageTest {
 
 	@AfterEach
 	void tearDown() throws Exception {
-		this.shopPage.quitWebDriver();	
+		this.shopPage.quitWebDriver();
 	}
 
 	@Test
-	void test() {
+	void test() throws InterruptedException {
 		this.shopPage.viewShopPage();
-		Assertions.assertFalse(this.URL_SHOP.equals(shopPage.getCurrentUrl()));
+		System.out.println("URL: " + shopPage.getCurrentUrl());
+		Assertions.assertEquals(this.URL_SHOP, shopPage.getCurrentUrl());
 	}
 
 }
